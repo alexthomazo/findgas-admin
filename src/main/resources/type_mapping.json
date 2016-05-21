@@ -1,0 +1,25 @@
+{
+  "station": {
+	"properties": {
+	  "id": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "address": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "city": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "cp": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "location": {
+		"type": "geo_point"
+	  }
+	}
+  }
+}
