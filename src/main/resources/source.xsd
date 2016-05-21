@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="pdv_liste">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="pdv" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="adresse" type="xs:string"/>
+							<xs:element name="ville" type="xs:string"/>
+						</xs:sequence>
+						<xs:attribute name="id" type="xs:string"/>
+						<xs:attribute name="latitude" type="xs:string"/>
+						<xs:attribute name="longitude" type="xs:string"/>
+						<xs:attribute name="cp" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

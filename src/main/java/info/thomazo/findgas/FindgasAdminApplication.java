@@ -14,6 +14,6 @@ public class FindgasAdminApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(FindgasAdminApplication.class, args);
 
 		ImportService importService = context.getBean(ImportService.class);
-		importService.importStation(null);
+		importService.importStation("/home/alex/tmp/PrixCarburants_quotidien_20160514.xml");
 	}
 }
