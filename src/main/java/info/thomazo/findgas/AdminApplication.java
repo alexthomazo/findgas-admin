@@ -8,10 +8,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 import java.io.IOException;
 
 @SpringBootApplication
-public class FindgasAdminApplication {
+public class AdminApplication {
 
 	public static void main(String[] args) throws IOException {
-		ConfigurableApplicationContext context = SpringApplication.run(FindgasAdminApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(AdminApplication.class, args);
 
 		ImportService importService = context.getBean(ImportService.class);
 		importService.importStation("/home/alex/tmp/PrixCarburants_quotidien_20160514.xml");

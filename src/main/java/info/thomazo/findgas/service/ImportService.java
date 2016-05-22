@@ -63,7 +63,7 @@ public class ImportService {
 			try {
 				String geo = extractGeo(station.getLatitude(), station.getLongitude());
 
-				bulkRequest.add(esClient.prepareIndex(esConfig.getIndexName(), esConfig.getIndexType(), station.getId())
+				bulkRequest.add(esClient.prepareIndex(esConfig.getIndexName(), esConfig.getStationType(), station.getId())
 						.setSource(jsonBuilder()
 								.startObject()
 								.field("address", station.getAdresse())
@@ -104,11 +104,13 @@ public class ImportService {
 			return;
 		}
 
-		logger.info("Index [{}] not existing, create with type [{}]", indexName, esConfig.getIndexType());
+		logger.info("Index [{}] not existing, let's create it", indexName);
 		//create index
-		String mapping = IOUtils.toString(getClass().getResourceAsStream("/type_mapping.json"), StandardCharsets.UTF_8);
+		String stationMapping = IOUtils.toString(getClass().getResourceAsStream("/station_mapping.json"), StandardCharsets.UTF_8);
+		String commentMapping = IOUtils.toString(getClass().getResourceAsStream("/comment_mapping.json"), StandardCharsets.UTF_8);
 		esClient.admin().indices().prepareCreate(indexName)
-				.addMapping(esConfig.getIndexType(), mapping)
+				.addMapping(esConfig.getStationType(), stationMapping)
+				.addMapping(esConfig.getCommentType(), commentMapping)
 				.get();
 
 		logger.info("Index [{}] created", indexName);
