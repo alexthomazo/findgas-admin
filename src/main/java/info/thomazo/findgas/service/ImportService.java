@@ -103,8 +103,8 @@ public class ImportService {
 		s.setAdresse("200 Central Park S");
 		s.setCp("NY 10019");
 		s.setVille("New York");
-		s.setLatitude("40.766937");
-		s.setLongitude("-73.979173");
+		s.setLatitude("4076693.7");
+		s.setLongitude("-7397917.3");
 		return s;
 	}
 
