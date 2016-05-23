@@ -39,6 +39,9 @@ public class ImportService {
 		PdvListe stations = JAXB.unmarshal(new File(file), PdvListe.class);
 
 		List<PdvListe.Pdv> toSave = new ArrayList<>(500);
+		//adding test station
+		toSave.add(createTestStation());
+
 		int nbStations = 0;
 		for (PdvListe.Pdv station : stations.getPdv()) {
 			toSave.add(station);
@@ -92,6 +95,17 @@ public class ImportService {
 			return lat.toString() + ", " + lng.toString();
 		}
 
+	}
+
+	private PdvListe.Pdv createTestStation() {
+		PdvListe.Pdv s = new PdvListe.Pdv();
+		s.setId("TEST01");
+		s.setAdresse("200 Central Park S");
+		s.setCp("NY 10019");
+		s.setVille("New York");
+		s.setLatitude("40.766937");
+		s.setLongitude("-73.979173");
+		return s;
 	}
 
 
