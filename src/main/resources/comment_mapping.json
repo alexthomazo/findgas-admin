@@ -17,6 +17,9 @@
 	  "name": {
 		"type": "string",
 		"index": "not_analyzed"
+	  },
+	  "ip": {
+		"type": "ip"
 	  }
 	}
   }
