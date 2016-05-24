@@ -1,0 +1,25 @@
+<h1 class="page-header">Comments</h1>
+
+<h2 class="sub-header">50 derniers</h2>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>#</th>
+			<th>Date</th>
+			<th>Carburants</th>
+			<th>Commentaire</th>
+			<th>Nom</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="comment in comments">
+			<td>{{comment.id}}</td>
+			<td>{{comment.date}}</td>
+			<td>{{comment.gas}}</td>
+			<td>{{comment.comment}}</td>
+			<td>{{comment.name}}</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
