@@ -58,6 +58,14 @@ public class ImportService {
 
 	}
 
+	public void updateMapping(String type) throws IOException {
+		String mapping = IOUtils.toString(getClass().getResourceAsStream("/" + type + "_mapping.json"), StandardCharsets.UTF_8);
+		esClient.admin().indices().preparePutMapping(esConfig.getIndexName())
+				.setType(type)
+				.setSource(mapping)
+				.get();
+	}
+
 	private void persistStations(List<PdvListe.Pdv> stations) throws IOException {
 		if (stations == null || stations.isEmpty()) return;
 		BulkRequestBuilder bulkRequest = esClient.prepareBulk();

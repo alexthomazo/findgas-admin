@@ -1,0 +1,38 @@
+{
+  "patch": {
+	"properties": {
+	  "station": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "date": { "type": "date" },
+	  "address": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "city": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "cp": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "location": {
+		"type": "geo_point",
+		"lat_lon": true
+	  },
+	  "comment": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "name": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
+	  "ip": {
+		"type": "ip"
+	  }
+	}
+  }
+}
