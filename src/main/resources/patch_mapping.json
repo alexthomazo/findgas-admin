@@ -6,6 +6,10 @@
 		"index": "not_analyzed"
 	  },
 	  "date": { "type": "date" },
+	  "stationName": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
 	  "address": {
 		"type": "string",
 		"index": "not_analyzed"
@@ -32,6 +36,9 @@
 	  },
 	  "ip": {
 		"type": "ip"
+	  },
+	  "done": {
+		"type": "boolean"
 	  }
 	}
   }

@@ -1,6 +1,10 @@
 {
   "station": {
 	"properties": {
+	  "name": {
+		"type": "string",
+		"index": "not_analyzed"
+	  },
 	  "address": {
 		"type": "string",
 		"index": "not_analyzed"
