@@ -1,0 +1,71 @@
+<h1 class="page-header">Patchs <small>(10 premiers)</small></h1>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>Date</th>
+			<th>Nom</th>
+			<th>Adresse</th>
+			<th>CP</th>
+			<th>Ville</th>
+			<th>Commentaire</th>
+			<th>Nom</th>
+			<th>Geo</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="patch in patchs" ng-click="edit(patch)"
+				ng-class="{'success': patch.id == selected.id}">
+			<td>{{patch.date}}</td>
+			<td>{{patch.stationName}}</td>
+			<td>{{patch.address}}</td>
+			<td>{{patch.cp}}</td>
+			<td>{{patch.city}}</td>
+			<td>{{patch.comment}}</td>
+			<td>{{patch.name}}</td>
+			<td>{{patch.location}}</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
+<div ng-show="selected">
+	<div class="row">
+		<div class="col-md-4">
+			<p>
+				<b>{{curStation.name}}</b> {{curStation.address}}, {{curStation.cp}} {{curStation.city}}<br>
+				<a href="http://maps.google.com/maps?q=loc:{{curStation.location}}" target="_blank">{{curStation.location}}</a>
+			</p>
+		</div>
+		<div class="col-md-2 text-center">
+			<p>
+			<span class="glyphicon glyphicon-arrow-right"></span><br>
+			<button ng-click="donePatch()" title="Ne pas prendre en compte" type="button" class="btn btn-danger">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			</button>
+
+			<button ng-click="deleteStation()" title="Supprimer la station" type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+			</button>
+
+			<button ng-click="validatePatch()" title="Valider le changement" type="button" class="btn btn-success">
+				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+			</button>
+			</p>
+		</div>
+
+		<div class="col-md-5">
+			<p>
+				<b>{{selected.stationName}}</b> {{selected.address}}, {{selected.cp}} {{selected.city}}<br>
+				<a href="http://maps.google.com/maps?q=loc:{{selected.location}}" target="_blank">{{selected.location}}</a>
+			</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div id="map" style="height: 480px"></div>
+		</div>
+	</div>
+</div>

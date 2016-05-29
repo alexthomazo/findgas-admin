@@ -1,5 +1,6 @@
 angular.module('admin', [
 	'admin.comments',
+	'admin.patchs',
 	'ui.bootstrap',
 	'restangular'
 ]).config(function(RestangularProvider) {

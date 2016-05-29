@@ -70,7 +70,7 @@ public class PatchCtrl {
 				).get();
 
 		logger.info("[PATCH_DONE] [patchId:{}] [done:{}]", id, done);
-		return "ok";
+		return "\"ok\"";
 	}
 
 
