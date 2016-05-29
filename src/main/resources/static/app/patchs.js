@@ -56,7 +56,7 @@ angular.module('admin.patchs', ['ngRoute', 'restangular', 'leaflet-directive'])
 			delete $scope.selected;
 			delete $scope.curStation;
 			//delay to let ES re-index
-			$timeout(reloadPatchs, 500);
+			$timeout(reloadPatchs, 1000);
 		});
 	};
 
@@ -80,7 +80,7 @@ angular.module('admin.patchs', ['ngRoute', 'restangular', 'leaflet-directive'])
 		var geo = $scope.selected.location.split(',');
 		mymap.setView([geo[0], geo[1]], 17);
 		patchMk = L.marker([geo[0], geo[1]], { draggable: true }).addTo(mymap);
-		patchMk.on('dragend', function(e) {
+		patchMk.on('dragend', function() {
 			var latlng = patchMk.getLatLng();
 			$scope.selected.location = latlng.lat + "," + latlng.lng;
 			$scope.$apply();
