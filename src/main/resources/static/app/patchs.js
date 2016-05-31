@@ -43,7 +43,7 @@ angular.module('admin.patchs', ['ngRoute', 'restangular', 'leaflet-directive'])
 		if (station.id) {
 			station.save().then($scope.donePatch);
 		} else {
-			stations.save(station).then($scope.donePatch);
+			stations.post(station).then($scope.donePatch);
 		}
 	};
 

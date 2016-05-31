@@ -2,6 +2,7 @@ package info.thomazo.findgas.api;
 
 import info.thomazo.findgas.config.ElasticConfig;
 import info.thomazo.findgas.dto.Patch;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.search.SearchHit;
@@ -24,9 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
-import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
-import static org.elasticsearch.index.query.QueryBuilders.existsQuery;
-import static org.elasticsearch.index.query.QueryBuilders.termQuery;
+import static org.elasticsearch.index.query.QueryBuilders.*;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.PATCH;
 
@@ -99,7 +98,7 @@ public class PatchCtrl {
 
 	private String getField(Map<String, Object> fields, String name) {
 		Object value = fields.get(name);
-		if (value instanceof String) return (String) value;
+		if (value instanceof String) return StringEscapeUtils.unescapeHtml4((String) value);
 		return null;
 	}
 }
